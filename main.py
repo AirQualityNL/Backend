@@ -1,4 +1,6 @@
 from fastapi import FastAPI
+import numpy as np
+import tensorflow as tf
 
 from service.pollution import PollutantService
 from service.model import PollutantModel
@@ -17,5 +19,12 @@ async def get(target_datetime: str, lat: float = 51.4231, lon: float = 5.4623):
 
 @app.get("/model")
 async def get_model_summary():
-    model = PollutantModel()
-    return model.summary()
+    model = PollutantModel(tf.keras.models.load_model("model/pollutant_model.keras"))
+    return {"summary": model.summary()}
+
+@app.get("/test_prediction")
+async def test_prediction():
+    model = PollutantModel(tf.keras.models.load_model("model/pollutant_model.keras"))
+    data = np.load("model/sequence.npy")
+    forecasted_weather = np.load("model/future_sequence.npy")
+    return {"result": model.predict(data, forecasted_weather)}
