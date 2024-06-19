@@ -12,8 +12,8 @@ fastapi = "*"
 pymongo = "*"
 requests = "*"
 pandas = "*"
-tensorflow = "*"
-numpy = "*"
+numpy = "1.26.4"
+keras = "*"
 
 [dev-packages]
 
