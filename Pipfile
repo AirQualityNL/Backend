@@ -12,6 +12,7 @@ fastapi = "*"
 pymongo = "*"
 requests = "*"
 pandas = "*"
+numpy = "*"
 
 [dev-packages]
 
