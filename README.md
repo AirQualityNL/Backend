@@ -38,3 +38,18 @@ pipenv run dev
 ```
 
 This will start the server on port 8000, by running the dev script defined in the Pipfile.
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+
+## Deploy on Vercel
+
+**NOTE**: a problem vercel is that the AI model cannot be deployed on our backend because the necessary libraries exceed the size limit of Vercel's free tier. Alternative deployment options might have to be researched.
+
+**NOTE**: This repo is part of an organization, to make use of vercels on-click deployment, you will have to have an vercel pro plan. One work around to keep using a hobby plan, is to deploy using github actions. You will need 3 keys: VERCEL_TOKEN, ORG_ID, PROJECT_ID. The GITHUB_TOKEN gets filled in automatically.
+
+To get the VERCEL_TOKEN, you will have to login in your account and create one manually.
+
+To get the ORG_ID and PROJECT_ID, I recommend that you download the [vercel CLI](https://vercel.com/docs/cli). Then run the command ```vercel```. The first time it will ask some question that can be left default(if nothing has changed). It will then deploy a version to vercel and generate a .vercel folder in your project folder. This folder contains a json containing the ORG_ID and PROJECT_ID.
+
+These 3 can be filled in the repository secrets. 
