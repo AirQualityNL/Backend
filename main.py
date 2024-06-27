@@ -34,4 +34,5 @@ async def predict():
     # load the data from the mock-prediction.npy file
     data = np.load("dataset/mockprediction.npy")
     mock_model_service = MockModelService(data)
-    return {"prediction": mock_model_service.predict().tolist()}
+    pm25, pm10, no2, o3 = mock_model_service.predict()
+    return {"PM2.5": pm25, "PM10": pm10, "NO2": no2, "O3": o3}
