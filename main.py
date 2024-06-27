@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 from service.pollution import PollutantService
 from service.mockmodel import MockModelService
